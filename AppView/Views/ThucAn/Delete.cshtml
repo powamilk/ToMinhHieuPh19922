@@ -1,0 +1,36 @@
+﻿@model AppView.Models.ThucAnViewModel
+
+@{
+    ViewData["Title"] = "Xóa thức ăn";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Bạn có chắc muốn xóa thức ăn này không?</h3>
+<div>
+    <h4>Thông tin thức ăn</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Tên</dt>
+        <dd class="col-sm-10">@Model.Ten</dd>
+
+        <dt class="col-sm-2">Loại</dt>
+        <dd class="col-sm-10">@Model.Loai</dd>
+
+        <dt class="col-sm-2">Số lượng tồn kho</dt>
+        <dd class="col-sm-10">@Model.SoLuongTonKho</dd>
+
+        <dt class="col-sm-2">Đơn giá</dt>
+        <dd class="col-sm-10">@Model.DonGia</dd>
+
+        <dt class="col-sm-2">Ngày nhập kho</dt>
+        <dd class="col-sm-10">@Model.NgayNhapKho.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Tình trạng</dt>
+        <dd class="col-sm-10">@Model.TinhTrang</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a class="btn btn-secondary" href="@Url.Action("Index", "ThucAn")">Hủy</a>
+    </form>
+</div>

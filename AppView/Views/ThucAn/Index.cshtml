@@ -1,0 +1,40 @@
+﻿@model List<AppView.Models.ThucAnViewModel>
+
+@{
+    ViewData["Title"] = "Danh sách Thức Ăn";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Loại</th>
+            <th>Số lượng tồn kho</th>
+            <th>Đơn giá</th>
+            <th>Ngày nhập kho</th>
+            <th>Tình trạng</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Ten</td>
+                <td>@item.Loai</td>
+                <td>@item.SoLuongTonKho</td>
+                <td>@item.DonGia</td>
+                <td>@item.NgayNhapKho.ToString("dd/MM/yyyy")</td>
+                <td>@(item.TinhTrang ? "Còn hàng" : "Hết hàng")</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("Edit", "ThucAn", new { id = item.Id })">Sửa</a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "ThucAn", new { id = item.Id })">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-success" href="@Url.Action("Create", "ThucAn")">Thêm mới Thức Ăn</a>

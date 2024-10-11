@@ -1,0 +1,45 @@
+﻿@model AppView.Models.ThucAnViewModel
+
+@{
+    ViewData["Title"] = "Thêm mới thức ăn";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Ten">Tên</label>
+        <input type="text" asp-for="Ten" class="form-control" />
+        <span asp-validation-for="Ten" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Loai">Loại</label>
+        <input type="text" asp-for="Loai" class="form-control" />
+        <span asp-validation-for="Loai" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="SoLuongTonKho">Số lượng tồn kho</label>
+        <input type="number" asp-for="SoLuongTonKho" class="form-control" />
+        <span asp-validation-for="SoLuongTonKho" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="DonGia">Đơn giá</label>
+        <input type="number" asp-for="DonGia" class="form-control" step="0.01" />
+        <span asp-validation-for="DonGia" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="NgayNhapKho">Ngày nhập kho</label>
+        <input type="date" asp-for="NgayNhapKho" class="form-control" />
+        <span asp-validation-for="NgayNhapKho" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="TinhTrang">Tình trạng</label>
+        <select asp-for="TinhTrang" class="form-control">
+            <option value="true">Còn hàng</option>
+            <option value="false">Hết hàng</option>
+        </select>
+        <span asp-validation-for="TinhTrang" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "ThucAn")">Hủy</a>
+</form>
